@@ -16,10 +16,6 @@ def index(request):
     })
 
 def book_detail(request, slug):
-    # try: 
-    #     book = Book.objects.get(pk=id) #pk is primery key
-    # except:
-    #     raise  Http404() 
     book = get_object_or_404(Book, slug=slug) # right side is what we pass in the function, left side is what we have in Book object (both cases it is slug)
     return render(request, "book_outlet/book_detail.html", {
         "title": book.title,
